@@ -19,7 +19,7 @@ public static void main(String[] args) {
     userServ.saveUser("Fred", "Dost", (byte) 93);
     userServ.saveUser("Bob", "Ford", (byte) 45);
     System.out.println(userServ.getAllUsers());
-    //userServ.cleanUsersTable();
+    userServ.cleanUsersTable();
     userServ.dropUsersTable();
     userServ.dropUsersTable();
     userServ.createUsersTable();

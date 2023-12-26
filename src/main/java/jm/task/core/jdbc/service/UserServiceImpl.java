@@ -24,7 +24,7 @@ public void dropUsersTable() {
 
 public void saveUser(String name, String lastName, byte age) {
     userDao.saveUser(name, lastName, age);
-    System.out.println(String.format("User с именем - %s добавлен в базу данных", name));
+    System.out.printf("User с именем - %s добавлен в базу данных%n", name);
 }
 
 public void removeUserById(long id) {
