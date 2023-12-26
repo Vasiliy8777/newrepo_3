@@ -18,14 +18,14 @@ private static final String GET_ALL_USERS = "select * from users";
 private static final String INSERT_NEW_USER = "INSERT INTO users (name, lastName, Age) VALUES(?,?,?)";
 private static final String DELETE_USER = "DELETE FROM users where id=? ";
 private static final String CLEAR_USERS = "TRUNCATE TABLE users";
-private static Util connection = null;
+private static Util connection = new Util();;
 
 public UserDaoJDBCImpl() {
 
 }
 
 public void createUsersTable() {
-    connection = new Util();
+    //connection = new Util();
     Statement stmt = null;
     try {
         stmt = connection.getConnect().createStatement();
@@ -45,8 +45,8 @@ public void createUsersTable() {
 
 public void dropUsersTable() {
     connection = new Util();
-    Statement stmt = null;
-    try {
+   Statement stmt = null;
+    try  {
         stmt = connection.getConnect().createStatement();
         ResultSet rs = stmt.executeQuery(TAB_IS_EXIST);
         if (!rs.next()) {
@@ -63,7 +63,7 @@ public void dropUsersTable() {
 }
 
 public void saveUser(String name, String lastName, byte age) {
-    connection = new Util();
+    //connection = new Util();
     try (PreparedStatement prepStat = connection.getConnect().prepareStatement(INSERT_NEW_USER)) {
         prepStat.setString(1, name);
         prepStat.setString(2, lastName);
@@ -75,7 +75,7 @@ public void saveUser(String name, String lastName, byte age) {
 }
 
 public void removeUserById(long id) {
-    connection = new Util();
+    //connection = new Util();
     try (PreparedStatement prepStat = connection.getConnect().prepareStatement(DELETE_USER)) {
         prepStat.setInt(1, (int) id);
         prepStat.execute();
@@ -85,7 +85,7 @@ public void removeUserById(long id) {
 }
 
 public List<User> getAllUsers() {
-    connection = new Util();
+    //connection = new Util();
     List<User> users = new ArrayList<>();
     Statement st = null;
     try {
