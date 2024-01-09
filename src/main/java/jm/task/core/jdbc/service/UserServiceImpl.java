@@ -12,29 +12,22 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 private static UserDao userDao = new UserDaoJDBCImpl();
-
 public void createUsersTable() {
     userDao.createUsersTable();
-
 }
-
 public void dropUsersTable() {
     userDao.dropUsersTable();
 }
-
 public void saveUser(String name, String lastName, byte age) {
     userDao.saveUser(name, lastName, age);
     System.out.printf("User с именем - %s добавлен в базу данных%n", name);
 }
-
 public void removeUserById(long id) {
     userDao.removeUserById(id);
 }
-
 public List<User> getAllUsers() {
     return userDao.getAllUsers();
 }
-
 public void cleanUsersTable() {
     userDao.cleanUsersTable();
 }

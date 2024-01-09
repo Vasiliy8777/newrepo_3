@@ -7,11 +7,10 @@ import java.sql.SQLException;
 
 
 public class Util {
-private static final String URL = "jdbc:mysql://localhost:3306/newbd123";
+private static final String URL = "jdbc:mysql://localhost:3306/newbd1_23";
 private static final String USERNAME = "root";
 private static final String PASSWORD = "rootuser";
 private final Connection connect;
-
 public Util() {
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -20,14 +19,10 @@ public Util() {
         throw new RuntimeException(e);
     }
 }
-
 public Connection getConnect() {
     return connect;
 }
-
 public void close() throws Exception {
     connect.close();
 }
-
-
 }
